@@ -1,0 +1,1 @@
+{"version":3,"file":"EnumBuilder.js","sourceRoot":"","sources":["../../../src/types/general/EnumBuilder.ts"],"names":[],"mappings":";;AAAA,gDAA8D;AAC9D,kDAAmD;AAEnD,iBAAiC,SAAQ,uBAAa;IAClD,YAAY,GAAG,KAAuB;QAClC,KAAK,EAAE,CAAC;QACR,IAAI,CAAC,uBAAY,CAAC,IAAI,CAAC,GAAG,EAAE,IAAI,EAAE,KAAK,EAAE,CAAC;IAC9C,CAAC;CACJ;AALD,8BAKC"}

@@ -1,0 +1,12 @@
+import { SchemaBuilder } from '../core/builder';
+import { Schema } from '../core/builder/schema';
+import AllBuilder from './allof/AllBuilder';
+import AnyBuilder from './anyof/AnyBuilder';
+import MergeBuilder from './merge/MergeBuilder';
+import NotBuilder from './not/NotBuilder';
+import OneBuilder from './oneof/OneBuilder';
+export declare function sAllOf(...schemas: Array<Schema | SchemaBuilder>): AllBuilder;
+export declare function sAnyOf(...schemas: Array<Schema | SchemaBuilder>): AnyBuilder;
+export declare function sMerge(...schemas: Array<Schema | SchemaBuilder>): MergeBuilder;
+export declare function sNot(schema: Schema | SchemaBuilder): NotBuilder;
+export declare function sOneOf(...schemas: Array<Schema | SchemaBuilder>): OneBuilder;

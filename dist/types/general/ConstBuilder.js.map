@@ -1,0 +1,1 @@
+{"version":3,"file":"ConstBuilder.js","sourceRoot":"","sources":["../../../src/types/general/ConstBuilder.ts"],"names":[],"mappings":";;AAAA,gDAA8D;AAC9D,kDAAmD;AAEnD,kBAAkC,SAAQ,uBAAa;IACnD,YAAY,KAAgB;QACxB,KAAK,EAAE,CAAC;QACR,IAAI,CAAC,uBAAY,CAAC,IAAI,CAAC,GAAG,EAAE,KAAK,EAAE,KAAK,EAAE,CAAC;IAC/C,CAAC;CACJ;AALD,+BAKC"}

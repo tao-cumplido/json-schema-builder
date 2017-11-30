@@ -1,0 +1,1 @@
+{"version":3,"file":"NullBuilder.js","sourceRoot":"","sources":["../../../src/types/null/NullBuilder.ts"],"names":[],"mappings":";;AAAA,gDAAmD;AACnD,kDAAmD;AAEnD,iBAAiC,SAAQ,uBAAa;IAClD;QACI,KAAK,EAAE,CAAC;QACR,IAAI,CAAC,uBAAY,CAAC,IAAI,CAAC,GAAG,EAAE,IAAI,EAAE,MAAM,EAAE,CAAA;IAC9C,CAAC;CACJ;AALD,8BAKC"}

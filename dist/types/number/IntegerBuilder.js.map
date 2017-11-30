@@ -1,0 +1,1 @@
+{"version":3,"file":"IntegerBuilder.js","sourceRoot":"","sources":["../../../src/types/number/IntegerBuilder.ts"],"names":[],"mappings":";;AAAA,qDAAyD;AACzD,mDAA4C;AAE5C,oBAAoC,SAAQ,uBAAa;IACrD;QACI,KAAK,EAAE,CAAC;QACR,IAAI,CAAC,oBAAY,CAAC,IAAI,CAAC,GAAG,EAAE,IAAI,EAAE,SAAS,EAAE,CAAC;IAClD,CAAC;CACJ;AALD,iCAKC"}
