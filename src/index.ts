@@ -46,7 +46,7 @@ export class JsonSchema extends Serializable {
             this.options = Object.assign(versionOrOptions, { errors: [] });
         }
 
-        this[Serializable.serializer]();
+        this[Serializable.serializer](this.options);
 
         this.options.errors.forEach((error) => {
             const stackFrame = ErrorStack.parse(error).find((frame) => frame.functionName === 'Object.<anonymous>');

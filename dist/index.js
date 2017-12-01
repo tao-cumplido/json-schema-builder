@@ -33,7 +33,7 @@ class JsonSchema extends internal_1.Serializable {
         else {
             this.options = Object.assign(versionOrOptions, { errors: [] });
         }
-        this[internal_1.Serializable.serializer]();
+        this[internal_1.Serializable.serializer](this.options);
         this.options.errors.forEach((error) => {
             const stackFrame = ErrorStack.parse(error).find((frame) => frame.functionName === 'Object.<anonymous>');
             const name = Object.getPrototypeOf(error).constructor.name;
