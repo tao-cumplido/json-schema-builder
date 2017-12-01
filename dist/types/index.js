@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const ListBuilder_1 = require("./array/ListBuilder");
 const TupleBuilder_1 = require("./array/TupleBuilder");
+const BooleanBuilder_1 = require("./boolean/BooleanBuilder");
 const ConstBuilder_1 = require("./general/ConstBuilder");
 const EnumBuilder_1 = require("./general/EnumBuilder");
 const NullBuilder_1 = require("./null/NullBuilder");
@@ -34,6 +35,10 @@ function sInteger() {
     return new IntegerBuilder_1.default();
 }
 exports.sInteger = sInteger;
+function sBoolean() {
+    return new BooleanBuilder_1.default();
+}
+exports.sBoolean = sBoolean;
 function sNull() {
     return new NullBuilder_1.default();
 }

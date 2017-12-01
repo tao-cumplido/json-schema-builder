@@ -2,6 +2,7 @@ import { JsonValue, SchemaBuilder } from '../core/builder';
 import { Schema } from '../core/builder/schema';
 import ListBuilder from './array/ListBuilder';
 import TupleBuilder from './array/TupleBuilder';
+import BooleanBuilder from './boolean/BooleanBuilder';
 import ConstBuilder from './general/ConstBuilder';
 import EnumBuilder from './general/EnumBuilder';
 import NullBuilder from './null/NullBuilder';
@@ -35,6 +36,10 @@ export function sNumber() {
 
 export function sInteger() {
     return new IntegerBuilder();
+}
+
+export function sBoolean() {
+    return new BooleanBuilder();
 }
 
 export function sNull() {
