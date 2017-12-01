@@ -1,5 +1,5 @@
 import * as ErrorStack from 'error-stack-parser';
-import { writeJsonSync, WriteOptions } from 'fs-extra';
+import { outputJsonSync, WriteOptions } from 'fs-extra';
 import { SchemaBuilder } from './core/builder';
 import { Schema } from './core/builder/schema';
 import { Serializable, SerializerOptions } from './core/internal';
@@ -64,7 +64,7 @@ export class JsonSchema extends Serializable {
     }
 
     write(path: string, options?: WriteOptions) {
-        writeJsonSync(path, this[Serializable.data], options || {
+        outputJsonSync(path, this[Serializable.data], options || {
             spaces: 4
         });
     }
