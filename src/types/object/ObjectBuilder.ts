@@ -23,11 +23,10 @@ export default class ObjectBuilder extends SchemaBuilder {
 
     private requireHelper() {
         const builder = this;
-        const required = this.required;
         return {
-            all: () => required(...Object.keys(builder[Serializable.data].properties || {})),
+            all: () => builder.required(...Object.keys(builder[Serializable.data].properties || {})),
             but: (...properties: Array<string>) => {
-                return required(
+                return builder.required(
                     ...Object.keys(builder[Serializable.data].properties || {})
                     .filter((x) => !properties.includes(x))
                 );

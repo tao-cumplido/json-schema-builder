@@ -25,11 +25,10 @@ class ObjectBuilder extends builder_1.SchemaBuilder {
     }
     requireHelper() {
         const builder = this;
-        const required = this.required;
         return {
-            all: () => required(...Object.keys(builder[internal_1.Serializable.data].properties || {})),
+            all: () => builder.required(...Object.keys(builder[internal_1.Serializable.data].properties || {})),
             but: (...properties) => {
-                return required(...Object.keys(builder[internal_1.Serializable.data].properties || {})
+                return builder.required(...Object.keys(builder[internal_1.Serializable.data].properties || {})
                     .filter((x) => !properties.includes(x)));
             }
         };
