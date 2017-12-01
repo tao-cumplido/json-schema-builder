@@ -13,7 +13,7 @@ class Serializable {
         this[Serializable.serializer] = function (options) {
             if (this.isSerialized)
                 return;
-            serializer && serializer(options);
+            serializer && serializer.call(this, options);
             this.isSerialized = true;
         };
     }

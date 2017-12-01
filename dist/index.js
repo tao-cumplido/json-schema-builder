@@ -12,9 +12,9 @@ var SchemaVersion;
 })(SchemaVersion = exports.SchemaVersion || (exports.SchemaVersion = {}));
 class JsonSchema extends internal_1.Serializable {
     constructor(versionOrOptions, schema) {
-        super(function () {
+        super(function (options) {
             if (schema instanceof builder_1.SchemaBuilder) {
-                schema[internal_1.Serializable.serializer](this.options);
+                schema[internal_1.Serializable.serializer](options);
                 Object.assign(this[internal_1.Serializable.data], schema[internal_1.Serializable.data]);
             }
             else {

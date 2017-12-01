@@ -23,9 +23,9 @@ export class JsonSchema extends Serializable {
     constructor(version: SchemaVersion, schema: Schema | SchemaBuilder);
     constructor(options: BuilderOptions, schema: Schema | SchemaBuilder);
     constructor(versionOrOptions: SchemaVersion | BuilderOptions, schema: Schema | SchemaBuilder) {
-        super(function (this: JsonSchema) {
+        super(function (this: JsonSchema, options) {
             if (schema instanceof SchemaBuilder) {
-                schema[Serializable.serializer](this.options);
+                schema[Serializable.serializer](options);
                 Object.assign(this[Serializable.data], schema[Serializable.data]);
             } else {
                 Object.assign(this[Serializable.data], schema);

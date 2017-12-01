@@ -30,7 +30,7 @@ export class Serializable {
         this.isSerialized = false;
         this[Serializable.serializer] = function (options: SerializerOptions) {
             if (this.isSerialized) return;
-            serializer && serializer(options);
+            serializer && serializer.call(this, options);
             this.isSerialized = true;
         }
     }
