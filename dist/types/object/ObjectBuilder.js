@@ -27,8 +27,8 @@ class ObjectBuilder extends builder_1.SchemaBuilder {
         const data = this[internal_1.Serializable.data];
         const required = this.required;
         return {
-            all: () => required(...Object.keys(data.properties)),
-            but: (...properties) => required(...Object.keys(data.properties).filter((x) => !properties.includes(x)))
+            all: () => required(...Object.keys(data.properties || {})),
+            but: (...properties) => required(...Object.keys(data.properties || {}).filter((x) => !properties.includes(x)))
         };
     }
     ;

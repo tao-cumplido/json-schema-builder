@@ -25,8 +25,8 @@ export default class ObjectBuilder extends SchemaBuilder {
         const data: SerializableTree<SchemaObject> = this[Serializable.data];
         const required = this.required;
         return {
-            all: () => required(...Object.keys(data.properties)),
-            but: (...properties: Array<string>) => required(...Object.keys(data.properties).filter((x) => !properties.includes(x)))
+            all: () => required(...Object.keys(data.properties || {})),
+            but: (...properties: Array<string>) => required(...Object.keys(data.properties || {}).filter((x) => !properties.includes(x)))
         }
     };
 
