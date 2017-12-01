@@ -24,11 +24,14 @@ class ObjectBuilder extends builder_1.SchemaBuilder {
         }
     }
     requireHelper() {
-        const data = this[internal_1.Serializable.data];
+        const builder = this;
         const required = this.required;
         return {
-            all: () => required(...Object.keys(data.properties || {})),
-            but: (...properties) => required(...Object.keys(data.properties || {}).filter((x) => !properties.includes(x)))
+            all: () => required(...Object.keys(builder[internal_1.Serializable.data].properties || {})),
+            but: (...properties) => {
+                return required(...Object.keys(builder[internal_1.Serializable.data].properties || {})
+                    .filter((x) => !properties.includes(x)));
+            }
         };
     }
     ;
