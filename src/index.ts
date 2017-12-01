@@ -34,8 +34,6 @@ export class JsonSchema extends Serializable {
 
         this.errorMessages = [];
 
-        this[Serializable.data] = { $schema: versionOrOptions };
-
         if (typeof versionOrOptions === 'string') {
             this.options = {
                 version: versionOrOptions,
@@ -45,6 +43,8 @@ export class JsonSchema extends Serializable {
         } else {
             this.options = Object.assign(versionOrOptions, { errors: [] });
         }
+
+        this[Serializable.data] = { $schema: this.options.version };
 
         this[Serializable.serializer](this.options);
 

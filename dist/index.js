@@ -22,7 +22,6 @@ class JsonSchema extends internal_1.Serializable {
             }
         });
         this.errorMessages = [];
-        this[internal_1.Serializable.data] = { $schema: versionOrOptions };
         if (typeof versionOrOptions === 'string') {
             this.options = {
                 version: versionOrOptions,
@@ -33,6 +32,7 @@ class JsonSchema extends internal_1.Serializable {
         else {
             this.options = Object.assign(versionOrOptions, { errors: [] });
         }
+        this[internal_1.Serializable.data] = { $schema: this.options.version };
         this[internal_1.Serializable.serializer](this.options);
         this.options.errors.forEach((error) => {
             const stackFrame = ErrorStack.parse(error).find((frame) => frame.functionName === 'Object.<anonymous>');
