@@ -63,6 +63,10 @@ export class JsonSchema extends Serializable {
         return this.errorMessages;
     }
 
+    get data(): any {
+        return this[Serializable.data];
+    }
+
     write(path: string, options?: WriteOptions) {
         outputJsonSync(path, this[Serializable.data], options || {
             spaces: 4

@@ -47,6 +47,9 @@ class JsonSchema extends internal_1.Serializable {
     get errors() {
         return this.errorMessages;
     }
+    get data() {
+        return this[internal_1.Serializable.data];
+    }
     write(path, options) {
         fs_extra_1.outputJsonSync(path, this[internal_1.Serializable.data], options || {
             spaces: 4

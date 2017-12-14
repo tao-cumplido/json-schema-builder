@@ -17,5 +17,6 @@ export declare class JsonSchema extends Serializable {
     constructor(version: SchemaVersion, schema: Schema | SchemaBuilder);
     constructor(options: BuilderOptions, schema: Schema | SchemaBuilder);
     readonly errors: Array<string>;
+    readonly data: any;
     write(path: string, options?: WriteOptions): void;
 }
