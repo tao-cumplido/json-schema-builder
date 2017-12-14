@@ -21,8 +21,8 @@ export type SerializableTree<T extends SchemaTree> = {
 }
 
 export class Serializable {
-    static readonly serializer = Symbol();
-    static readonly data = Symbol();
+    static readonly serializer = Symbol('serializer');
+    static readonly data = Symbol('data');
 
     private isSerialized: boolean;
 

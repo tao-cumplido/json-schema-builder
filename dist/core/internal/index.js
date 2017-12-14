@@ -18,7 +18,7 @@ class Serializable {
         };
     }
 }
-Serializable.serializer = Symbol();
-Serializable.data = Symbol();
+Serializable.serializer = Symbol('serializer');
+Serializable.data = Symbol('data');
 exports.Serializable = Serializable;
 //# sourceMappingURL=index.js.map

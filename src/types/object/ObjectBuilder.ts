@@ -6,6 +6,8 @@ import { DataReferenceError, ValueIntError, VersionError } from '../../core/inte
 import DataReference from '../../references/data/DataReference';
 import { Dependencies, Properties, SchemaObject } from './schema';
 
+const propertyNames = Symbol('object-properties');
+
 export default class ObjectBuilder extends SchemaBuilder {
     constructor(properties?: Properties) {
         super(function (this: ObjectBuilder, options) {
@@ -15,6 +17,7 @@ export default class ObjectBuilder extends SchemaBuilder {
         });
 
         this[Serializable.data] = { type: 'object' };
+        this[propertyNames] = properties || {};
 
         if (properties) {
             this.properties(properties);
@@ -24,12 +27,10 @@ export default class ObjectBuilder extends SchemaBuilder {
     private requireHelper() {
         const builder = this;
         return {
-            all: () => builder.required(...Object.keys(builder[Serializable.data].properties || {})),
+            all: () => builder.required(...Object.keys(builder[propertyNames])),
             but: (...properties: Array<string>) => {
-                return builder.required(
-                    ...Object.keys(builder[Serializable.data].properties || {})
-                    .filter((x) => !properties.includes(x))
-                );
+                const filteredProperties = Object.keys(builder[propertyNames]).filter((x) => !properties.includes(x));
+                return builder.required(...filteredProperties);
             }
         }
     };
@@ -83,7 +84,7 @@ export default class ObjectBuilder extends SchemaBuilder {
                     data.required = undefined;
                     break;
                 default:
-                    data.required = first instanceof DataReference ? dataRefError.validate(first, options) : [first, ...rest];
+                    data.required = first instanceof DataReference ? dataRefError.validate(first, options) : first ? [first, ...rest] : [];
             }
         });
 

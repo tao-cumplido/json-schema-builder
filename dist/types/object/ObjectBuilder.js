@@ -5,6 +5,7 @@ const builder_1 = require("../../core/builder");
 const internal_1 = require("../../core/internal");
 const errors_1 = require("../../core/internal/errors");
 const DataReference_1 = require("../../references/data/DataReference");
+const propertyNames = Symbol('object-properties');
 class ObjectBuilder extends builder_1.SchemaBuilder {
     constructor(properties) {
         super(function (options) {
@@ -19,6 +20,7 @@ class ObjectBuilder extends builder_1.SchemaBuilder {
         this.require = Object.assign(this.required, this.requireHelper());
         this.patterns = this.patternProperties;
         this[internal_1.Serializable.data] = { type: 'object' };
+        this[propertyNames] = properties || {};
         if (properties) {
             this.properties(properties);
         }
@@ -26,10 +28,10 @@ class ObjectBuilder extends builder_1.SchemaBuilder {
     requireHelper() {
         const builder = this;
         return {
-            all: () => builder.required(...Object.keys(builder[internal_1.Serializable.data].properties || {})),
+            all: () => builder.required(...Object.keys(builder[propertyNames])),
             but: (...properties) => {
-                return builder.required(...Object.keys(builder[internal_1.Serializable.data].properties || {})
-                    .filter((x) => !properties.includes(x)));
+                const filteredProperties = Object.keys(builder[propertyNames]).filter((x) => !properties.includes(x));
+                return builder.required(...filteredProperties);
             }
         };
     }
@@ -71,7 +73,7 @@ class ObjectBuilder extends builder_1.SchemaBuilder {
                     data.required = undefined;
                     break;
                 default:
-                    data.required = first instanceof DataReference_1.default ? dataRefError.validate(first, options) : [first, ...rest];
+                    data.required = first instanceof DataReference_1.default ? dataRefError.validate(first, options) : first ? [first, ...rest] : [];
             }
         });
         return this;
